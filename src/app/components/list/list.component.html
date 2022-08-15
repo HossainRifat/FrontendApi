@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- <table class="table table-striped">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>DOB</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of InvestorList$|async">
+                    <td>{{item.FirstName}}</td>
+                </tr>
+            </tbody>
+          </table> -->
+
+    <div class="h-container">
+        <!-- {{title}} -->
+        <div class="jumbotron shadow" style="background-color:rgb(59, 82, 132)">
+            <h1>BEPARTNER</h1>
+            <p class="lead">Find The Best Entrepreneur To Invest.</p>
+            <p><a class="btn btn-dark border"  style="background-color:rgb(148, 180, 72)" (click)="goToSignup()" >Become an Investor
+                    &raquo;</a></p>
+        </div>
+        
+        
+            <div class="row">
+                <div class="col-md-12">
+                <h2>News</h2>
+                    <div *ngFor=" let item of IdeaConfirmed$|async">
+                        <div class="searchDi">
+                            <div class="row p-2 bg-white border In-Startup shadow rounded">
+                                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                        src="assets/img/{{item.Img}}"></div>
+                                <div class="col-md-6 mt-1 in-list-width">
+                                    <h2 class="text-success">{{item.Company_Name}} Got Investment.</h2>
+                                    <div class="d-flex flex-row">
+    
+                                    </div>
+                                    <div class="mt-1 mb-1 spec-1"><span>{{item.Category}}</span><span
+                                            class="dot"></span><span>{{item.Feature1_Title}}</span><span
+                                            class="dot"></span><span>{{item.Feature2_Title}}<br></span></div>
+                                    <div class="mt-1 mb-1 spec-1"><span>{{item.Feature3_Title}}</span><span
+                                            class="dot"></span><span>{{item.Feature4_Title}}</span><span
+                                            class="dot"></span><span><br></span></div>
+                                    <p class="text-dark para mb-0">{{item.Description}}<br><br></p>
+                                </div>
+                                <div class="sa_align-items-center align-content-center col-md-3 border-left mt-1">
+                                    <div class="d-flex flex-row sa_align-items-center">
+                                        <h4 class="mr-1 text-success">$ {{item.Valuation}}</h4><span class="text-danger">(valuation)</span>
+                                    </div>
+                                    <div class="d-flex flex-row sa_align-items-center">
+                                        <h4 class="mr-1 text-info">Investment Amount: {{item.Asking_Amount}}$</h4><span
+                                            class="strike-text"></span>
+                                    </div>
+                                    <div class="d-flex flex-row sa_align-items-center">
+                                        <h4 class="mr-1 text-info">For {{item.Asking_Share}}% of the company.</h4><span
+                                            class="strike-text"></span>
+                                    </div>
+                                    <div class="d-flex flex-row sa_align-items-center">
+                                        <h4 class="text-success mr-1">Total Profit: {{item.Total_Profit}}$</h4>
+                                    </div>
+    
+                                    <div class="d-flex flex-column mt-4">
+                                        <br><br>
+                                        <a class="btn btn-primary btn-sm" href="">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

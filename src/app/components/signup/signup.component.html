@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form #form="ngForm" action="" method="post" (ngSubmit)="addInvestorP()" class="in-registration shadow-lg">
+        <img class="in-reg-img" src="assets/img/title_logo.png" alt="" height="100" width="100">
+        <h2>Registration</h2>
+        <h2>1/3</h2>
+    
+        <label>First Name:</label>
+        <input type="text" name="FirstName"  class="form-control" [(ngModel)]="addInvestor.FirstName">
+        <!-- <p class="text-danger">@Html.ValidationMessage("FirstName")</p> -->
+    
+        <label>Last Name:</label>
+        <input type="text" name="LastName"  class="form-control" [(ngModel)]="addInvestor.LastName">
+        <!-- <p class="text-danger">@Html.ValidationMessage("LastName")</p> -->
+    
+        <label>Gender:</label><br>
+        <div class="r-right">
+        
+        <input type="radio" name="Gender" value="Male" class="form-check-input" [(ngModel)]="addInvestor.Gender"/>
+        <label class="g-input">Male</label>
+        <input type="radio" name="Gender" value="Female" class="form-check-input" [(ngModel)]="addInvestor.Gender"/>
+        <label class="g-input">Female</label>
+        <input type="radio" name="Gender" value="Other" class="form-check-input" [(ngModel)]="addInvestor.Gender"/>
+        <label class="g-input">Other</label><br>
+        </div>
+        
+        <!-- <p class="text-danger">@Html.ValidationMessage("Gender")</p> -->
+    
+        <label>Date of birth:</label>
+        <input type="date" name="Dob"  class="form-control" [(ngModel)]="addInvestor.Dob">
+        <!-- <p class="text-danger ">@Html.ValidationMessage("Dob")</p> -->
+    
+        <label>Phone:</label>
+        <input type="tel" name="Phone" value="" class="form-control" [(ngModel)]="addInvestor.Phone">
+        <!-- <p class="text-danger">@Html.ValidationMessage("Phone")</p> -->
+    
+        <label>Email:</label>
+        <input type="email" name="In_Email" value="" class="form-control" [(ngModel)]="addInvestor.In_Email">
+        <!-- <p class="text-danger">@Html.ValidationMessage("In_Email")</p> -->
+    
+        <label>NID number:</label>
+        <input type="text" name="Nid" value="" class="form-control" [(ngModel)]="addInvestor.Nid">
+        <!-- <p class="text-danger">@Html.ValidationMessage("Nid")</p> -->
+    
+        <label>Permanent Address:</label>
+        <textarea class="form-control" rows="5" name="Address" placeholder="Enter your full address.." [(ngModel)]="addInvestor.Address">@(Model!=null? Model.Address:"")</textarea>
+        <!-- <p class="text-danger">@Html.ValidationMessage("Address")</p> -->
+    
+        <label>Profile Picture : </label>
+        <input type="File" name="In_Img" value="img" > 
+        <!-- <p class="text-danger">@Html.ValidationMessage("In_Img")</p> -->
+    
+        <input type="Submit" value="Next"  class="btn btn-success in-reg-button">
+        <p class="text text-danger" style="text-align:center;">Already have an account</p>
+        <input type="button" value="Login"  class="btn btn-success in-reg-button">
+    </form>
+</body>
+</html>

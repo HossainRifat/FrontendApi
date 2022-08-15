@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" (ngSubmit)="addInvestorP2()" class="in-registration">
+        <img class="in-reg-img" src="assets/img/title_logo.png" alt="" height="100" width="100">
+        <h2>Professional Information</h2>
+        <h2>2/3</h2>
+        <label>Organization's' Name:</label>
+        <input type="text" name="OrgName" value="" class="form-control" [(ngModel)]="addInvestor2.OrgName">
+        <!-- <p class="text-danger">@Html.ValidationMessage("OrgName")</p> -->
+    
+        <label>Established date:</label>
+        <input type="date" name="OrgEstablished" value="" class="form-control" [(ngModel)]="addInvestor2.OrgEstablished">
+        <!-- <p class="text-danger">@Html.ValidationMessage("OrgEstablished")</p> -->
+    
+        <label>Organization's' email:</label>
+        <input type="email" name="OrgEmail" value="" class="form-control" [(ngModel)]="addInvestor2.OrgEmail">
+        <!-- <p class="text-danger">@Html.ValidationMessage("OrgEmail")</p> -->
+    
+        <label>Organization's phone:</label>
+        <input type="tel" name="OrgPhone" value="" class="form-control" [(ngModel)]="addInvestor2.OrgPhone">
+        <!-- <p class="text-danger">@Html.ValidationMessage("OrgPhone")</p> -->
+    
+        <label>Organization license number:</label>
+        <input type="text" name="OrgLicense" value="" class="form-control" [(ngModel)]="addInvestor2.OrgLicense">
+        <!-- <p class="text-danger">@Html.ValidationMessage("OrgLicense")</p> -->
+    
+        <label>Tax identification number:</label>
+        <input type="text" name="Tin" value="" class="form-control" [(ngModel)]="addInvestor2.Tin">
+        <!-- <p class="text-danger">@Html.ValidationMessage("Tin")</p> -->
+    
+        <label>Organization's Site:</label>
+        <input type="text" name="OrgSite" value="" class="form-control" [(ngModel)]="addInvestor2.OrgSite">
+        <!-- <p class="text-danger">@Html.ValidationMessage("OrgSite")</p> -->
+    
+        <label>Organization Address:</label>
+        <textarea class="form-control" rows="5" name="OrgLocation" placeholder="Enter your full address.." [(ngModel)]="addInvestor2.OrgLocation"></textarea>
+        <!-- <p class="text-danger">@Html.ValidationMessage("OrgLocation")</p> -->
+    
+        <input type="Submit" value="Next" class="btn btn-success in-reg-button">
+        <input type="button" value="Previous" (click)="goToSignup()" class="btn btn-warning in-reg-button"/>
+    
+    
+    
+    </form>
+</body>
+</html>

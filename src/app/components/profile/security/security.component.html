@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="profile-body">
+        <div class="Inprofile-container">
+            <div class=" investor-shadow rounded-lg d-block d-sm-flex">
+                <div class="profile-tab-nav border-right">
+                    <div class="p-4">
+                        <div class="img-circle text-center mb-3">
+                            <img src="../assets/img/11.jpg"  alt="Image" class="investor-shadow">
+
+                        </div>
+                        <h2 class="text-center">Md. Rifat hossain</h2>
+                        <a href="" class="edit-profile">Edit</a>
+                    </div>
+                    
+                    
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a mat-button class=" nav-link" (click)="goToPersonal()">
+                            <i class="fa fa-user text-center mr-1"></i>
+                            Personal Information
+                        </a>
+
+                        <a mat-button class="nav-link" (click)="goToProfessional()">
+                            <i class="fa fa-building text-center mr-1"></i>
+                            Professional Information
+                        </a>
+                        <a mat-button class="nav-link"  href=""  aria-selected="false">
+                            <i class="fa fa-briefcase text-center mr-1"></i>
+                            My Investments
+                        </a>
+                        <a mat-button class="active nav-link" (click)="goToSecurity()">
+                            <i class="fa fa-key text-center mr-1"></i>
+                            Security
+                        </a>
+                        <a mat-button class="nav-link text-warning" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
+                            <i class="fa fa-exclamation-circle text-center mr-1 text-warning"></i>
+                            Report Issue
+                        </a>
+                        <a mat-button class="nav-link text-danger" role="tab" aria-selected="false">
+                            <i class="fa fa-sign-out text-center mr-1 text-danger"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+                    
+                    <div class="active tab-pane" id="password" role="tabpanel" aria-labelledby="password-tab">
+                        <h3 class="mb-4">Security</h3>
+                        <div class="row">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" id="passShow" name="Password" readonly value="" class="form-control">
+                                    <input type="checkbox" onclick="showPass()" name="pwd"> Show Password
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a href="">Edit information</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
