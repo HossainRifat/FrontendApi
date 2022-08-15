@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { mainInvestor } from '../model/main_investor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class ApiServiceService {
     return this.http.get<any>(this.BaseUrl + 'investor/get/all')
   }
 
-  createInvestorList(data:any) {
-    return this.http.post(this.BaseUrl + 'investor/create',data)
+  createInvestorList(investor3:mainInvestor):Observable<mainInvestor> {
+    return this.http.post<mainInvestor>(this.BaseUrl + 'investor/create',investor3)
   }
 
   updateInvestor(id:number|string, data:any){

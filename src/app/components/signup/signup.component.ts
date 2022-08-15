@@ -19,7 +19,8 @@ export class SignupComponent implements OnInit {
     Gender: '',
     Address: '',
     Phone: '',
-    Nid: ''
+    Nid: '',
+    Img: ''
   }
 
   constructor(private router:Router) { }

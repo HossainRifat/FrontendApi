@@ -55,7 +55,7 @@
         <!-- <p class="text-danger">@Html.ValidationMessage("Address")</p> -->
     
         <label>Profile Picture : </label>
-        <input type="File" name="In_Img" value="img" > 
+        <input type="File" name="In_Img" value="img" [(ngModel)]="addInvestor.Img" > 
         <!-- <p class="text-danger">@Html.ValidationMessage("In_Img")</p> -->
     
         <input type="Submit" value="Next"  class="btn btn-success in-reg-button">

@@ -23,6 +23,9 @@ import {ApiServiceService} from './services/api-service.service';
 import { SignupComponent } from './components/signup/signup.component';
 import { Signup2Component } from './components/signup2/signup2.component';
 import { Signup3Component } from './components/signup3/signup3.component';
+import { InboxComponent } from './components/messenger/inbox/inbox.component';
+import { SentComponent } from './components/messenger/sent/sent.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { Signup3Component } from './components/signup3/signup3.component';
     SecurityComponent,
     SignupComponent,
     Signup2Component,
-    Signup3Component
+    Signup3Component,
+    InboxComponent,
+    SentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -7,4 +7,5 @@ export interface Investor{
     Address: string;
     Phone:string;
     Nid:string;
+    Img:string;
 }
