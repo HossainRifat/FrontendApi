@@ -94,6 +94,7 @@ export class Signup3Component implements OnInit {
     this.inService.createInvestorList(this.investor3).subscribe({
       next:(mainInvestor) =>{
         //console.log(mainInvestor);
+        localStorage.clear();
         this.router.navigate(["login"]);
       }
     });

@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Login } from '../model/login.model';
 import { mainInvestor } from '../model/main_investor.model';
 
 @Injectable({
@@ -13,6 +14,10 @@ export class ApiServiceService {
   constructor(private http:HttpClient) { }
 
   // Investor
+
+  login(login:Login):Observable<any>{
+    return this.http.post(this.BaseUrl + 'investor/login',login);
+  }
 
   getInvestorList():Observable<any[]> {
     return this.http.get<any>(this.BaseUrl + 'investor/get/all')
@@ -41,7 +46,11 @@ export class ApiServiceService {
   }
 
   getProfile() {
-    return this.http.get(this.BaseUrl + `investor/get/rh140025@gmail`);
+    return this.http.get(this.BaseUrl + `investor/profile`,
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
   }
 
 }

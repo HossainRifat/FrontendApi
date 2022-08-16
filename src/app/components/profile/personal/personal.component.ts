@@ -13,12 +13,13 @@ export class PersonalComponent implements OnInit {
   constructor(private router: Router, private service:ApiServiceService) { }
 
   ngOnInit(): void {
-    this.service.getProfile().subscribe(data =>
+    this.service.getProfile().subscribe((data) =>
       {
         this.User = data;
         console.log(data);
-      }
-      )
+      },(error)=>{
+        this.router.navigate(['login'])
+      })
   }
 
   goToProfessional(): void{

@@ -26,6 +26,10 @@ export class ListComponent implements OnInit {
     this.router.navigate(['signup'])
   }
 
+  goToLogin(): void{
+    this.router.navigate(['login'])
+  }
+
   SetSession(){
     sessionStorage.setItem("email","rh140025@gmail");
   }

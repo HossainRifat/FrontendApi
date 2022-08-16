@@ -15,8 +15,10 @@ export class ProfessionalComponent implements OnInit {
       {
         this.User = data;
         console.log(data);
-      }
-      )
+      },(error)=>{
+        console.log(error);
+        this.router.navigate(['login']);
+      })
   }
 
   goToProfessional(): void{

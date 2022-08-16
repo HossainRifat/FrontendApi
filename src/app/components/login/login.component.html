@@ -13,8 +13,8 @@
         
 
 
-        <form action="" method="post">
-            <img class="l-img" src="assets/img/title_logo.png" alt="" height="100" width="100">
+        <form action="" method="post" (ngSubmit)="InLogin()">
+            <img class="l-img" src="assets/img/title_logo.png"  alt="" height="100" width="100">
             <h2 class="text-center">Login</h2>
             <table class="inLogin">
 
@@ -28,7 +28,7 @@
                 <tr>
                     <td>
 
-                        <input type="email" name="In_Email" class="form-control" >
+                        <input type="email" name="In_Email" class="form-control" [(ngModel)]="login.Username">
 
                     </td>
                 </tr>
@@ -40,11 +40,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="password" id="passShow" name="Password" class="form-control" ></td>
+                    <td><input type="password" id="passShow" name="Password" class="form-control" [(ngModel)]="login.Password"></td>
                 </tr>
                 <tr>
-                    <td>
-                        <p class="l-center text-danger">Error message</p>
+                    <td *ngIf="errorMsg">
+                        <p class="l-center text-danger">{{errorMsg.error}}</p>
                     </td>
                 </tr>
                 <tr>
