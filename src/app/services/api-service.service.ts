@@ -9,6 +9,7 @@ import { mainInvestor } from '../model/main_investor.model';
 })
 export class ApiServiceService {
 
+  company:any;
   readonly BaseUrl = "https://localhost:44382/api/";
 
   constructor(private http:HttpClient) { }
@@ -38,11 +39,27 @@ export class ApiServiceService {
   // Idea
 
   getIdea():Observable<any[]> {
-    return this.http.get<any>(this.BaseUrl + 'idea/get/all')
+    return this.http.get<any>(this.BaseUrl + 'idea/get/all',
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
+
+  getCompany(company:string):Observable<any> {
+    return this.http.get<any>(this.BaseUrl + `idea/company/${company}`,
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
   }
 
   getConfirmedIdea():Observable<any[]> {
-    return this.http.get<any>(this.BaseUrl + 'idea/get/confirmed')
+    return this.http.get<any>(this.BaseUrl + 'idea/get/confirmed',
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
   }
 
   getProfile() {
@@ -51,6 +68,14 @@ export class ApiServiceService {
       'Authorization':localStorage.getItem("auth") || '{}',
     })
   });
+  }
+
+  setCompanyName(name:any){
+    this.company=name;
+  }
+
+  getCompanyName(){
+    return this.company;
   }
 
 }

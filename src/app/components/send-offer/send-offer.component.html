@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h3>Make an offer to {{name.Company_Name}}</h3>
+
+<div>
+  <form action="/action_page.php">
+    <label for="fname">CEO Email</label>
+    <input type="text" id="fname" readonly name="firstname" value="{{name.En_Post_Email}}">
+
+    <label for="lname">Title</label>
+    <input type="text" id="lname" name="lastname" placeholder="">
+
+    <label for="">Description</label>
+    <textarea name="" id="" cols="30" rows="3"></textarea>
+    
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</body>
+</html>

@@ -9,6 +9,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { Signup2Component } from './components/signup2/signup2.component';
 import { Signup3Component } from './components/signup3/signup3.component';
 import { LoginComponent } from './components/login/login.component';
+import { StartupsComponent } from './components/startups/startups.component';
+import { CompanyComponent } from './components/company/company.component';
+import { SendOfferComponent } from './components/send-offer/send-offer.component';
 
 const routes: Routes = [
   {path:"home",component:ListComponent},
@@ -19,8 +22,10 @@ const routes: Routes = [
   {path:"signup",component:SignupComponent},
   {path:"signup2",component:Signup2Component},
   {path:"signup3",component:Signup3Component},
-  {path:"login",component:LoginComponent}
-
+  {path:"login",component:LoginComponent},
+  {path:"startup",component:StartupsComponent},
+  {path:"company/:id",component:CompanyComponent},
+  {path:"sendoffer",component:SendOfferComponent}
 ];
 
 @NgModule({

@@ -26,6 +26,11 @@ import { Signup3Component } from './components/signup3/signup3.component';
 import { InboxComponent } from './components/messenger/inbox/inbox.component';
 import { SentComponent } from './components/messenger/sent/sent.component';
 import { LoginComponent } from './components/login/login.component';
+import { StartupsComponent } from './components/startups/startups.component';
+import { CompanyComponent } from './components/company/company.component';
+import { OffersComponent } from './components/offers/offers.component';
+import { SendOfferComponent } from './components/send-offer/send-offer.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,11 @@ import { LoginComponent } from './components/login/login.component';
     Signup3Component,
     InboxComponent,
     SentComponent,
-    LoginComponent
+    LoginComponent,
+    StartupsComponent,
+    CompanyComponent,
+    OffersComponent,
+    SendOfferComponent
   ],
   imports: [
     BrowserModule,
@@ -54,9 +63,11 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [ApiServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[SendOfferComponent]
 })
 export class AppModule { }
