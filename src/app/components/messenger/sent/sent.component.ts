@@ -12,4 +12,8 @@ export class SentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  printName(name:any){
+    alert(name);
+  }
+
 }
