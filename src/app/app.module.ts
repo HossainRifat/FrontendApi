@@ -68,6 +68,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
   ],
   providers: [ApiServiceService],
   bootstrap: [AppComponent],
-  entryComponents:[SendOfferComponent]
+  
+  entryComponents:[
+    SendOfferComponent,
+    OffersComponent
+  ]
 })
 export class AppModule { }

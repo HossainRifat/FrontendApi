@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { StartupsComponent } from './components/startups/startups.component';
 import { CompanyComponent } from './components/company/company.component';
 import { SendOfferComponent } from './components/send-offer/send-offer.component';
+import { OffersComponent } from './components/offers/offers.component';
 
 const routes: Routes = [
   {path:"home",component:ListComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"startup",component:StartupsComponent},
   {path:"company/:id",component:CompanyComponent},
-  {path:"sendoffer",component:SendOfferComponent}
+  {path:"sendoffer",component:SendOfferComponent},
+  {path:"offers",component:OffersComponent}
 ];
 
 @NgModule({

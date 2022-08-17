@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="All" >
+            <div *ngFor="let item of offer|async" class="o-list">
+                <h3>Offered By: {{item.FirstName}} {{item.LastName}}</h3>
+                <h4>Email: {{item.In_Email}}</h4>
+                <p>Offer: {{item.Offered_Amount}}$ for {{item.Offered_Share}}% of the company.</p>
+            </div>
+            
+        </mat-tab>
+        <mat-tab label="My Offer">
+            <div *ngFor="let item of offer|async" class="o-list">
+                <h3>Offered By: Me</h3>
+                <h4>Email: {{item.In_Email}}</h4>
+                <p>Offer: {{item.Offered_Amount}}$ for {{item.Offered_Share}}% of the company.</p>
+            </div>
+        </mat-tab>
+      </mat-tab-group>
+
+      <!-- <div *ngFor="let item of offer|async">
+        {{item.Offered_Amount}}
+      </div> -->
+
+</body>
+</html>

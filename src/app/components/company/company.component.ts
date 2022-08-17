@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { SendOfferComponent } from '../send-offer/send-offer.component';
 import {MatDialog} from '@angular/material/dialog';
+import { OffersComponent } from '../offers/offers.component';
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
@@ -26,5 +27,9 @@ export class CompanyComponent implements OnInit {
     this.dialog.open(SendOfferComponent);
   }
 
+  openOffer(name:any){
+    this.service.setCompanyName(name);
+    this.dialog.open(OffersComponent);
+  }
  
 }

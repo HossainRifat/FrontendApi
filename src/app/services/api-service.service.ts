@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Login } from '../model/login.model';
 import { mainInvestor } from '../model/main_investor.model';
+import { Offer } from '../model/offer.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
 
+  
   company:any;
   readonly BaseUrl = "https://localhost:44382/api/";
 
@@ -34,6 +36,14 @@ export class ApiServiceService {
 
   deleteInvestor(id:number|string){
     return this.http.get(this.BaseUrl + `investor/delete/${id}`);
+  }
+
+  getProfile() {
+    return this.http.get(this.BaseUrl + `investor/profile`,
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
   }
 
   // Idea
@@ -62,14 +72,33 @@ export class ApiServiceService {
   });
   }
 
-  getProfile() {
-    return this.http.get(this.BaseUrl + `investor/profile`,
-    {headers:new HttpHeaders({
+
+  // Offer
+
+  createOffer(offer:Offer):Observable<Offer>{
+    return this.http.post<Offer>(this.BaseUrl+'offer/create',offer,{headers:new HttpHeaders({
       'Authorization':localStorage.getItem("auth") || '{}',
     })
   });
   }
 
+  getOffer(id:any):Observable<any>{
+    return this.http.get<any>(this.BaseUrl+`offer/company/${id}`,{headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
+
+  getMyOffer():Observable<any>{
+    return this.http.get<any>(this.BaseUrl+'offer/myoffer',{headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
+
+
+
+  //Other
   setCompanyName(name:any){
     this.company=name;
   }

@@ -29,8 +29,9 @@ input[type=text], select {
     padding: 20px;
   }
 
-  body{
+  *{
     max-width: 500px;
+    max-height: 600px;
   }
 
   textarea{
