@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { PersonalComponent } from './components/profile/personal/personal.component';
 import { ProfessionalComponent } from './components/profile/professional/professional.component';
 import { SecurityComponent } from './components/profile/security/security.component';
@@ -31,7 +31,8 @@ import { CompanyComponent } from './components/company/company.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { SendOfferComponent } from './components/send-offer/send-offer.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { BasicMessageComponent } from './components/messenger/basic-message/basic-message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     StartupsComponent,
     CompanyComponent,
     OffersComponent,
-    SendOfferComponent
+    SendOfferComponent,
+    BasicMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -64,14 +66,17 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSliderModule,
+    MatCheckboxModule
   ],
   providers: [ApiServiceService],
   bootstrap: [AppComponent],
   
   entryComponents:[
     SendOfferComponent,
-    OffersComponent
+    OffersComponent,
+    BasicMessageComponent
   ]
 })
 export class AppModule { }

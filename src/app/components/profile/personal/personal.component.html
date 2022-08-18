@@ -43,14 +43,14 @@
                             <i class="fa fa-exclamation-circle text-center mr-1 text-warning"></i>
                             Report Issue
                         </a>
-                        <a mat-button class="nav-link text-danger" href="" role="tab" aria-selected="false">
+                        <a mat-button class="nav-link text-danger" (click)="logout()" role="tab" aria-selected="false">
                             <i class="fa fa-sign-out text-center mr-1 text-danger"></i>
                             Logout
                         </a>
                     </div>
                 </div>
                 <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-                    <div class="active tab-pane fade show " id="account" role="tabpanel" aria-labelledby="account-tab">
+                    <div *ngIf="!edit" class="active tab-pane fade show " id="account" role="tabpanel" aria-labelledby="account-tab">
                         <h3 class="mb-4">Personal Information</h3>
                         <div class="row">
                             <div class="col-md-6">
@@ -98,177 +98,81 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Permanent Address</label>
-                                    <textarea class="form-control" readonly rows="4">{{User.Address}}</textarea>
+                                    <textarea class="form-control" readonly  rows="4">{{User.Address}}</textarea>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <a href="">Edit information</a>
+                            <button class="btn btn-link" (click)="openEdit()">Edit information</button>
                             <!-- <button class="btn btn-primary">Update</button>
                             <button class="btn btn-light">Cancel</button> -->
                         </div>
                     </div>
-                    <div class="tab-pane fade show" id="password" role="tabpanel" aria-labelledby="password-tab">
-                        <h3 class="mb-4">Security</h3>
+                    <div *ngIf="edit" class="active tab-pane fade show " id="account" role="tabpanel" aria-labelledby="account-tab">
+                        <h3 class="mb-4">Personal Information</h3>
                         <div class="row">
-
-
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" id="passShow" name="Password" readonly value="" class="form-control">
-                                    <input type="checkbox" onclick="showPass()" name="pwd"> Show Password
-                                </div>
-                            </div>
-                            <!-- @*<div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>New password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Confirm new password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-                                </div>*@ -->
-                        </div>
-
-                        <div>
-                            <a href="">Edit information</a>
-                            <!-- @*<button class="btn btn-primary">Update</button>
-                                <button class="btn btn-light">Cancel</button>*@ -->
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
-                       
-                        <div>
-                            <a href="">Edit information</a>
-                            <!-- <button class="btn btn-primary">Update</button>
-                            <button class="btn btn-light">Cancel</button> -->
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
-                        <h3 class="mb-4">Professional Information</h3>
-                        <div class="row">
-
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Organization Name</label>
-                                    <input type="text" readonly class="form-control" name="OrgName" value="">
+                                    <label>First Name</label>
+                                    <input type="text" name="FirstName" class="form-control"  [(ngModel)]="personal.FirstName">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Organization's Established date: </label>
-                                    <input type="text" readonly class="form-control" name="OrgEstablished" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Organization's Email: </label>
-                                    <input type="text" readonly class="form-control" name="OrgEmail" value="">
+                                    <label>Last Name</label>
+                                    <input type="text"  class="form-control" name="LastName"  [(ngModel)]="personal.LastName">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Organization's Phone: </label>
-                                    <input type="text" readonly class="form-control" name="OrgPhone" value="">
+                                    <label>Gender</label>
+                                    <!-- <input type="text"  class="form-control" name="Gender" [(ngModel)]="personal.Gender"> -->
+                                    <select class="form-control" [(ngModel)]="personal.Gender">
+                                        <option value="Male">Male
+                                        </option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
                                 </div>
                             </div>
-
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Organization's License: </label>
-                                    <input type="text" readonly class="form-control" name="OrgLicense" value="">
+                                    <label>Date-of-birth</label>
+                                    <input type="text"  class="form-control" name="Dob" [(ngModel)]="personal.Dob">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tax Identification Number: </label>
-                                    <input type="text" readonly class="form-control" name="Tin" value="">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" name="Phone" [(ngModel)]="personal.Phone">
                                 </div>
                             </div>
-
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Organization's Website: </label>
-                                    <input type="text" readonly class="form-control" name="OrgSite" value="">
+                                    <label>Email</label>
+                                    <input type="text"  class="form-control" readonly name="In_Email" [(ngModel)]="personal.In_Email">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Organization's Address: </label>
-                                    <textarea class="form-control" readonly rows="4">@(Model!=null? Model.OrgLocation:"")</textarea>
+                                    <label>National Identity Number</label>
+                                    <input type="text" class="form-control" name="Nid" [(ngModel)]="personal.Nid">
                                 </div>
                             </div>
-                            <!-- @*<div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="app-check">
-                                            <label class="form-check-label" for="app-check">
-                                                App check
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                                            <label class="form-check-label" for="defaultCheck2">
-                                                Lorem ipsum dolor sit.
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>*@ -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Permanent Address</label>
+                                    <textarea class="form-control" name="Address"  rows="4" [(ngModel)]="personal.Address"></textarea>
+                                </div>
+                            </div>
                         </div>
                         <div>
-                            <a href="">Edit information</a>
-                            <!-- <button class="btn btn-primary">Update</button>
-                            <button class="btn btn-light">Cancel</button> -->
+                            <!-- <button class="btn btn-link" (click)="openEdit()">Edit information</button> -->
+                            <button class="btn btn-primary" (click)="updateInvestor()">Update</button>
+                            <button class="btn btn-light" (click)="openEdit()" style="margin-left: 10px;">Cancel</button>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-                        <h3 class="mb-4">Report To Admin</h3>
-                        <form action="" method="post">
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Admin: </label>
-                                        <input type="text" readonly class="form-control" name="Receiver" value="sazzad.sua@gmail.com">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Subject: </label>
-                                        <input type="text"  class="form-control" name="Subject">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Issue: </label>
-                                        <textarea class="form-control" rows="4" name="WMFH"></textarea>
-                                        <p class="text-danger">More than 25 character.</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <input type="submit" value="Send" class="btn btn-success" />
-                                </div>
-                               
-                                </div>
-                        </form>
-
-
-                    </div>
-                        <!--<div>
-                            <a href="">Edit information</a>-->
-                            <!-- <button class="btn btn-primary">Update</button>
-                            <button class="btn btn-light">Cancel</button> -->
-                        <!--</div>-->
+                    
                     
                 </div>
             </div>

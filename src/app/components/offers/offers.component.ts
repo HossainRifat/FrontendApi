@@ -10,6 +10,7 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 })
 export class OffersComponent implements OnInit {
 
+  myoffer:any;
   name:any;
   offer:any;
   constructor(private route:Router,private service:ApiServiceService) { }
@@ -24,9 +25,17 @@ export class OffersComponent implements OnInit {
     this.name=this.service.getCompanyName();
     console.log(this.name.PostId);
     this.offer=this.service.getOffer(this.name.PostId);
-    console.log(this.name);
-    //this.getMyOffer();
+    
+
+    // console.log(this.name);
+    // this.myoffer=this.service.getMyOffer().subscribe((data)=>{
+    //   console.log(data);
+    // })
+
+    
     
   }
+
+  
 
 }

@@ -30,8 +30,11 @@ export class ApiServiceService {
     return this.http.post<mainInvestor>(this.BaseUrl + 'investor/create',investor3)
   }
 
-  updateInvestor(id:number|string, data:any){
-    return this.http.post(this.BaseUrl + `investor/update/${id}`,data)
+  updateInvestor(data:any){
+    return this.http.post(this.BaseUrl + `investor/update`,data,{headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
   }
 
   deleteInvestor(id:number|string){
@@ -46,6 +49,13 @@ export class ApiServiceService {
   });
   }
 
+  Logout(){
+    return this.http.get(this.BaseUrl + `investor/logout`,
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
   // Idea
 
   getIdea():Observable<any[]> {
@@ -82,21 +92,28 @@ export class ApiServiceService {
   });
   }
 
-  getOffer(id:any):Observable<any>{
-    return this.http.get<any>(this.BaseUrl+`offer/company/${id}`,{headers:new HttpHeaders({
+  getOffer(id:any):Observable<any[]>{
+    return this.http.get<any[]>(this.BaseUrl+`offer/company/${id}`,{headers:new HttpHeaders({
       'Authorization':localStorage.getItem("auth") || '{}',
     })
   });
   }
 
-  getMyOffer():Observable<any>{
-    return this.http.get<any>(this.BaseUrl+'offer/myoffer',{headers:new HttpHeaders({
+  getMyOffer():Observable<any[]>{
+    return this.http.get<any[]>(this.BaseUrl+'offer/myoffer',{headers:new HttpHeaders({
       'Authorization':localStorage.getItem("auth") || '{}',
     })
   });
   }
 
+ //Message
 
+ createMessage(msg:any){
+  return this.http.post<Offer>(this.BaseUrl+'message/create',msg,{headers:new HttpHeaders({
+    'Authorization':localStorage.getItem("auth") || '{}',
+  })
+});
+ }
 
   //Other
   setCompanyName(name:any){

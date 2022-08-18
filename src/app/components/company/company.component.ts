@@ -4,6 +4,7 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 import { SendOfferComponent } from '../send-offer/send-offer.component';
 import {MatDialog} from '@angular/material/dialog';
 import { OffersComponent } from '../offers/offers.component';
+import { BasicMessageComponent } from '../messenger/basic-message/basic-message.component';
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
@@ -32,4 +33,9 @@ export class CompanyComponent implements OnInit {
     this.dialog.open(OffersComponent);
   }
  
+  openMessage(name:any){
+    this.service.setCompanyName(name);
+    this.dialog.open(BasicMessageComponent);
+  }
+
 }

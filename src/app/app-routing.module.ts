@@ -14,6 +14,7 @@ import { CompanyComponent } from './components/company/company.component';
 import { SendOfferComponent } from './components/send-offer/send-offer.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { SentComponent } from './components/messenger/sent/sent.component';
+import { BasicMessageComponent } from './components/messenger/basic-message/basic-message.component';
 
 const routes: Routes = [
   {path:"home",component:ListComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path:"company/:id",component:CompanyComponent},
   {path:"sendoffer",component:SendOfferComponent},
   {path:"offers",component:OffersComponent},
-  {path:"messenger",component:SentComponent}
+  {path:"messenger",component:SentComponent},
+  {path:"message",component:BasicMessageComponent}
 ];
 
 @NgModule({

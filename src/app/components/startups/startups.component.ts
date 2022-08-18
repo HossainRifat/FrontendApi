@@ -13,7 +13,11 @@ export class StartupsComponent implements OnInit {
   constructor(private router: Router, private service:ApiServiceService) { }
 
   ngOnInit(): void {
-    this.Idea = this.service.getIdea();
+    this.service.getIdea().subscribe((data:any)=>{
+      this.Idea=data;
+    },(error)=>{
+      this.router.navigate(["login"]);
+    });
   }
 
   getDetails(company:string){

@@ -49,69 +49,135 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
                    
                         
-                    <div class="active tab-pane" >
+                    <div *ngIf="!edit" class="active tab-pane" >
                         <h3 class="mb-4">Professional Information</h3>
                         <div class="row">
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Organization Name</label>
-                                    <input type="text" readonly class="form-control" name="OrgName" value="{{User.OrgName}}">
+                                    <input type="text" readonly class="form-control" name="OrgName" [(ngModel)]="pro.OrgName">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Organization's Established date: </label>
-                                    <input type="text" readonly class="form-control" name="OrgEstablished" value="{{User.OrgEstablished}}">
+                                    <input type="text" readonly class="form-control" name="OrgEstablished" [(ngModel)]="pro.OrgEstablished">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Organization's Email: </label>
-                                    <input type="text" readonly class="form-control" name="OrgEmail" value="{{User.OrgEmail}}">
+                                    <input type="text" readonly class="form-control" name="OrgEmail" [(ngModel)]="pro.OrgEmail">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Organization's Phone: </label>
-                                    <input type="text" readonly class="form-control" name="OrgPhone" value="{{User.Phone}}">
+                                    <input type="text" readonly class="form-control" name="OrgPhone" [(ngModel)]="pro.OrgPhone">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Organization's License: </label>
-                                    <input type="text" readonly class="form-control" name="OrgLicense" value="{{User.OrgLicense}}">
+                                    <input type="text" readonly class="form-control" name="OrgLicense" [(ngModel)]="pro.OrgLicense">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tax Identification Number: </label>
-                                    <input type="text" readonly class="form-control" name="Tin" value="{{User.Tin}}">
+                                    <input type="text" readonly class="form-control" name="Tin" [(ngModel)]="pro.Tin">
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Organization's Website: </label>
-                                    <input type="text" readonly class="form-control" name="OrgSite" value="{{User.OrgSite}}">
+                                    <input type="text" readonly class="form-control" name="OrgSite" [(ngModel)]="pro.OrgSite">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Organization's Address: </label>
-                                    <textarea class="form-control" readonly rows="4">{{User.OrgLocation}}</textarea>
+                                    <textarea class="form-control" readonly rows="4" name="OrgLocation" [(ngModel)]="pro.OrgLocation"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <a href="">Edit information</a>
+                            <button class="btn btn-link" (click)="openEdit()">Edit information</button>
                         </div>
                     </div> 
+
+                    <div *ngIf="edit" class="active tab-pane" >
+                        <h3 class="mb-4">Professional Information</h3>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Organization Name</label>
+                                    <input type="text"  class="form-control" name="OrgName" [(ngModel)]="pro.OrgName">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Organization's Established date: </label>
+                                    <input type="text"  class="form-control" name="OrgEstablished" [(ngModel)]="pro.OrgEstablished">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Organization's Email: </label>
+                                    <input type="text" class="form-control" name="OrgEmail" [(ngModel)]="pro.OrgEmail">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Organization's Phone: </label>
+                                    <input type="text" class="form-control" name="OrgPhone" [(ngModel)]="pro.OrgPhone">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Organization's License: </label>
+                                    <input type="text"  class="form-control" name="OrgLicense" [(ngModel)]="pro.OrgLicense">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tax Identification Number: </label>
+                                    <input type="text" class="form-control" name="Tin" [(ngModel)]="pro.Tin">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Organization's Website: </label>
+                                    <input type="text" class="form-control" name="OrgSite" [(ngModel)]="pro.OrgSite">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Organization's Address: </label>
+                                    <textarea class="form-control"  rows="4" name="OrgLocation" [(ngModel)]="pro.OrgLocation"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- <button class="btn btn-link" (click)="openEdit()">Edit information</button> -->
+                            <button class="btn btn-primary" (click)="updateInvestor()">Update</button>
+                            <button class="btn btn-light" (click)="openEdit()" style="margin-left: 10px;">Cancel</button>
+                        </div>
+                        
+                    </div> 
+
                 </div>
             </div>
         </div>
