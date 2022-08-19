@@ -1,1 +1,29 @@
-<p>inbox works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+            <div *ngFor="let item of msg" class="o-list">
+                <div *ngIf="item.SenderName==null" style="cursor: pointer ;" (click)="mainMsg(item)">
+                    <h3>To: {{item.Receiver}}</h3>
+                    <p class="msg-time">Time: {{item.Ttime}}</p>
+                    <p>{{item.Message}}</p>
+                </div>
+                <div *ngIf="item.SenderName!=null" style="cursor: pointer ;" (click)="mainMsg(item)">
+                    <h3 >From: {{item.Sender}}</h3>
+                    <p>Time: {{item.Ttime}}</p>
+                    <p>{{item.Message}}</p>
+                </div>            
+                
+            </div>
+
+      <!-- <div *ngFor="let item of offer|async">
+        {{item.Offered_Amount}}
+      </div> -->
+
+</body>
+</html>

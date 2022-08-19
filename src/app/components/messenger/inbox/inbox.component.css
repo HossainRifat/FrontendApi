@@ -1,0 +1,22 @@
+body{
+    width: 500px;
+    height: 600px;
+}
+
+o-list{
+    box-shadow: 0 2px 10px #f9f9f9 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    background-color: rgb(240, 240, 240);
+    color: aqua;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  h3{
+    font-weight: 600;
+  }

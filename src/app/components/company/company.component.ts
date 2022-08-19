@@ -13,7 +13,7 @@ import { BasicMessageComponent } from '../messenger/basic-message/basic-message.
 export class CompanyComponent implements OnInit {
 
   data:any;
-  constructor(private route:ActivatedRoute, private service:ApiServiceService, private dialog:MatDialog) { }
+  constructor(private route:ActivatedRoute, private service:ApiServiceService, private dialog:MatDialog, private router:Router) { }
 
   ngOnInit(): void {
     console.log(this.route.snapshot.params["id"]);
@@ -36,6 +36,14 @@ export class CompanyComponent implements OnInit {
   openMessage(name:any){
     this.service.setCompanyName(name);
     this.dialog.open(BasicMessageComponent);
+  }
+
+  confirmDeal(data:any){
+    this.service.conFirmIdea(data).subscribe((data)=>{
+      this.router.navigate(["profile/personal"]);    
+    },(error)=>{
+      console.log(error);
+    })
   }
 
 }

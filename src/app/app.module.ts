@@ -33,6 +33,9 @@ import { SendOfferComponent } from './components/send-offer/send-offer.component
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BasicMessageComponent } from './components/messenger/basic-message/basic-message.component';
+import { MyinvestmentComponent } from './components/profile/myinvestment/myinvestment.component';
+import { InhomeComponent } from './components/inhome/inhome.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +55,9 @@ import { BasicMessageComponent } from './components/messenger/basic-message/basi
     CompanyComponent,
     OffersComponent,
     SendOfferComponent,
-    BasicMessageComponent
+    BasicMessageComponent,
+    MyinvestmentComponent,
+    InhomeComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,8 @@ import { BasicMessageComponent } from './components/messenger/basic-message/basi
   entryComponents:[
     SendOfferComponent,
     OffersComponent,
-    BasicMessageComponent
+    BasicMessageComponent,
+    InboxComponent
   ]
 })
 export class AppModule { }

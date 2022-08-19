@@ -15,7 +15,7 @@ export class BasicMessageComponent implements OnInit {
     Receiver: '',
     Message: ''
   }
-  constructor(private service:ApiServiceService,public dialogRef: MatDialogRef<SendOfferComponent>,) { }
+  constructor(private service:ApiServiceService,public dialogRef: MatDialogRef<BasicMessageComponent>,) { }
 
   ngOnInit(): void {
     this.name=this.service.getCompanyName();

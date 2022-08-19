@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiServiceService } from 'src/app/services/api-service.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  selector: 'app-inhome',
+  templateUrl: './inhome.component.html',
+  styleUrls: ['./inhome.component.css']
 })
-export class ListComponent implements OnInit {
+export class InhomeComponent implements OnInit {
+
+  User:any;
   InvestorList$!:Observable<any[]>;
   IdeaConfirmed$!:Observable<any[]>;
   constructor(private router: Router, private service:ApiServiceService) {
@@ -19,15 +22,21 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     //this.InvestorList$ = this.service.getInvestorList();
+    this.service.getProfile().subscribe((data)=>{
+      this.User=data;
+      this.getIdea();
+    },(error)=>{
+      this.router.navigate(["login"]);
+    })
+    
+  }
+
+  getIdea(){
     this.IdeaConfirmed$ = this.service.getConfirmedIdea();
   }
 
-  goToSignup(): void{
-    this.router.navigate(['signup'])
-  }
-
   goToLogin(): void{
-    this.router.navigate(['login'])
+    this.router.navigate(['startup'])
   }
 
   SetSession(){

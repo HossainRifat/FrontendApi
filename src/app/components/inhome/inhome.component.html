@@ -41,12 +41,13 @@
         <!-- {{title}} -->
         <div class="jumbotron shadow" style="background-color:rgb(59, 82, 132)">
             <h1>BEPARTNER</h1>
+            <p *ngIf="User" class="lead">Welcome Back, {{User.FirstName}} {{User.LastName}}</p>
             <p class="lead">Find The Best Entrepreneur To Invest. Your Secure Investment is our priority.</p><br>
-            <p><a class="btn btn-dark border"  style="background-color:rgb(28, 162, 16);width: 250px;" (click)="goToLogin()" >Login  to Continue
+            <p><a class="btn btn-dark border"  style="background-color:rgb(28, 162, 16);width: 250px;" (click)="goToLogin()" >See Startups
                 &raquo;</a></p>
-                <p style="margin-left:4% ;">Don't have account</p>
-            <p><a class="btn btn-dark border"  style="background-color:rgb(31, 115, 180);width: 18%;" (click)="goToSignup()" >Become an Investor &raquo;</a></p>
+               
         </div>
+        
         
             <div class="row">
                 <div class="col-md-12">

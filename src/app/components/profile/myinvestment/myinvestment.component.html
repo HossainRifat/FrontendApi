@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="profile-body">
+        <div class="Inprofile-container">
+            <div class=" investor-shadow rounded-lg d-block d-sm-flex">
+                <div class="profile-tab-nav border-right">
+                    <div class="p-4">
+                        <div class="img-circle text-center mb-3">
+                            <img src="../assets/img/11.jpg"  alt="Image" class="investor-shadow">
+
+                        </div>
+                        <h2 *ngIf="User" class="text-center">{{User.FirstName}} {{User.LastName}}</h2>
+                        <a href="" class="edit-profile">Edit</a>
+                    </div>
+                    
+                    
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a mat-button class=" nav-link" (click)="goToPersonal()">
+                            <i class="fa fa-user text-center mr-1"></i>
+                            Personal Information
+                        </a>
+
+                        <a mat-button class="nav-link" (click)="goToProfessional()">
+                            <i class="fa fa-building text-center mr-1"></i>
+                            Professional Information
+                        </a>
+                        <a mat-button class="active nav-link"  aria-selected="false">
+                            <i class="fa fa-briefcase text-center mr-1"></i>
+                            My Investments
+                        </a>
+                        <a mat-button class=" nav-link" (click)="goToSecurity()">
+                            <i class="fa fa-key text-center mr-1"></i>
+                            Security
+                        </a>
+                        <a mat-button class="nav-link text-warning" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
+                            <i class="fa fa-exclamation-circle text-center mr-1 text-warning"></i>
+                            Report Issue
+                        </a>
+                        <a mat-button class="nav-link text-danger" role="tab" aria-selected="false">
+                            <i class="fa fa-sign-out text-center mr-1 text-danger"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-content p-4 p-md-5" id="v-pills-tabContent" style="max-height: 650px;">
+                    
+                    <div class="active tab-pane" id="password" role="tabpanel" aria-labelledby="password-tab">
+                        <h3 class="mb-4">My Investments</h3>
+                        <div class="row">
+                            <div *ngFor=" let item of IdeaConfirmed|async">
+                                <div class="searchDi">
+                                    <div class="row p-2 bg-white border In-Startup shadow rounded">
+                                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                src="assets/img/{{item.Img}}"></div>
+                                        <div class="col-md-6 mt-1 in-list-width">
+                                            <h2 class="text-success">{{item.Company_Name}}</h2>
+                                            <div class="d-flex flex-row">
+            
+                                            </div>
+                                            <div class="mt-1 mb-1 spec-1"><span>{{item.Category}}</span><span
+                                                    class="dot"></span><span>{{item.Feature1_Title}}</span><span
+                                                    class="dot"></span><span>{{item.Feature2_Title}}<br></span></div>
+                                            <div class="mt-1 mb-1 spec-1"><span>{{item.Feature3_Title}}</span><span
+                                                    class="dot"></span><span>{{item.Feature4_Title}}</span><span
+                                                    class="dot"></span><span><br></span></div>
+                                            <p class="text-dark para mb-0">{{item.Description}}<br><br></p>
+                                        </div>
+                                        <div class="sa_align-items-center align-content-center col-md-3 border-left mt-1">
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h4 class="mr-1 text-success">$ {{item.Valuation}}</h4><span class="text-danger">(valuation)</span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h4 class="mr-1 text-info">Investment Amount: {{item.Asking_Amount}}$</h4><span
+                                                    class="strike-text"></span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h4 class="mr-1 text-info">For {{item.Asking_Share}}% of the company.</h4><span
+                                                    class="strike-text"></span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h4 class="text-success mr-1">Total Profit: {{item.Total_Profit}}$</h4>
+                                            </div>
+            
+                                            <div class="d-flex flex-column mt-4">
+                                                <br><br>
+                                                <a class="btn btn-primary btn-sm" (click)="getDetails(item.Company_Name)">Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
+

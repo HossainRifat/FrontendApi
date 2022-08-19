@@ -15,6 +15,8 @@ import { SendOfferComponent } from './components/send-offer/send-offer.component
 import { OffersComponent } from './components/offers/offers.component';
 import { SentComponent } from './components/messenger/sent/sent.component';
 import { BasicMessageComponent } from './components/messenger/basic-message/basic-message.component';
+import { MyinvestmentComponent } from './components/profile/myinvestment/myinvestment.component';
+import { InhomeComponent } from './components/inhome/inhome.component';
 
 const routes: Routes = [
   {path:"home",component:ListComponent},
@@ -22,6 +24,7 @@ const routes: Routes = [
   {path:"profile/personal",component:PersonalComponent},
   {path:"profile/professional",component:ProfessionalComponent},
   {path:"profile/security",component:SecurityComponent},
+  {path:"profile/myinvestment",component:MyinvestmentComponent},
   {path:"signup",component:SignupComponent},
   {path:"signup2",component:Signup2Component},
   {path:"signup3",component:Signup3Component},
@@ -31,7 +34,8 @@ const routes: Routes = [
   {path:"sendoffer",component:SendOfferComponent},
   {path:"offers",component:OffersComponent},
   {path:"messenger",component:SentComponent},
-  {path:"message",component:BasicMessageComponent}
+  {path:"message",component:BasicMessageComponent},
+  {path:"inhome",component:InhomeComponent}
 ];
 
 @NgModule({

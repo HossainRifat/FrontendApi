@@ -82,6 +82,10 @@ export class SecurityComponent implements OnInit {
     this.router.navigate(['profile/security'])
   }
 
+  goToMyIn(): void{
+    this.router.navigate(['profile/myinvestment'])
+  }
+
   showPass(){
     if(this.passShow){
       this.passShow=false;

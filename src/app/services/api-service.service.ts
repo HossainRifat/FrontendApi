@@ -82,7 +82,21 @@ export class ApiServiceService {
   });
   }
 
+  getMyConfirmedIdea():Observable<any[]> {
+    return this.http.get<any>(this.BaseUrl + 'idea/myinvestment',
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
 
+  conFirmIdea(data:any):Observable<any> {
+    return this.http.post<any>(this.BaseUrl + 'idea/confirm',data,
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
   // Offer
 
   createOffer(offer:Offer):Observable<Offer>{
@@ -114,6 +128,20 @@ export class ApiServiceService {
   })
 });
  }
+
+ gteMessage():Observable<any[]>{
+  return this.http.get<any[]>(this.BaseUrl+'messenger',{headers:new HttpHeaders({
+    'Authorization':localStorage.getItem("auth") || '{}',
+  })
+});
+}
+
+gteConversation(data:any):Observable<any[]>{
+  return this.http.get<any[]>(this.BaseUrl+`messenger/conversation/${data}`,{headers:new HttpHeaders({
+    'Authorization':localStorage.getItem("auth") || '{}',
+  })
+});
+}
 
   //Other
   setCompanyName(name:any){
