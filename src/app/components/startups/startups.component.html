@@ -4,6 +4,8 @@
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src="https://kit.fontawesome.com/f5b71a7ee9.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +15,20 @@
     <div class="input-group shadow rounded-lg" style="padding:10px 20px 10px;margin-bottom:-30px;">
 
         <div class="form-outline">
-            <input type="search" class="form-control" placeholder="Search" id="inputSearch" />
+            <input type="search" class="form-control" placeholder="Search" name="search" [(ngModel)]="search" (keypress)="getSearch()" style="height:40px;width:300px;"/>
 
-            <a id="result" href="">Suggestion</a>
+            <a id="result">{{search}}</a>
         </div>
         <button type="button" class="btn btn-primary" onclick="InvestorMvcSearch()" style="height:40px;width:80px;">
-            <i class="fas fa-search"></i>
+            <mat-icon>search</mat-icon>
         </button>
-        <div class=" align-items-center" style="margin-left:62%;margin-top:1%; ">
-            <a href=""><i class='fas fa-sort-alpha-down'></i></a>
-            <a href=""><i class='fas fa-sort-alpha-down-alt' style="padding-left:10px;"></i></a>
+        <div class=" align-items-center" style="margin-left:34%;margin-top:1%; ">
+            <button mat-button color="primary" (click)="sort('CAZ')">Company <i class="fa fa-sort-alpha-asc"></i></button>
+            <button mat-button color="primary" (click)="sort('CZA')" >Company <i class='fa fa-sort-alpha-desc'></i></button>
+            <button mat-button color="primary" (click)="sort('V19')" style="padding-left:0px;">Valuation <i class="fa fa-sort-numeric-asc"></i></button>
+            <button mat-button color="primary" (click)="sort('V91')" style="padding-left:10px;">Valuation <i class='fa fa-sort-numeric-desc'></i></button>
+            <button mat-button color="primary" (click)="sort('S19')" style="padding-left:10px;">Share <i class="fa fa-sort-numeric-asc"></i></button>
+            <button mat-button color="primary" (click)="sort('S91')" style="padding-left:10px;">Share <i class='fa fa-sort-numeric-desc'></i></button>
         </div>
     </div>
 

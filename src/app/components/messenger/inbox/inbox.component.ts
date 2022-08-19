@@ -24,9 +24,11 @@ export class InboxComponent implements OnInit {
 
   mainMsg(data:any){
     this.service.setCompanyName(data);
+    localStorage.setItem("msgData",JSON.stringify(data));
     console.log(data);
-    this.router.navigate(["messenger"]);
+    
     this.dialogRef.close(["inbox"]);
+    this.router.navigate(["messenger"]);
   }
 
 }

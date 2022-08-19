@@ -35,6 +35,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BasicMessageComponent } from './components/messenger/basic-message/basic-message.component';
 import { MyinvestmentComponent } from './components/profile/myinvestment/myinvestment.component';
 import { InhomeComponent } from './components/inhome/inhome.component';
+import {MatIcon, MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { InhomeComponent } from './components/inhome/inhome.component';
     FormsModule,
     MatDialogModule,
     MatSliderModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ],
   providers: [ApiServiceService],
   bootstrap: [AppComponent],

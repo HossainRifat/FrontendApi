@@ -97,6 +97,22 @@ export class ApiServiceService {
     })
   });
   }
+
+  searchIdea(data:any):Observable<any[]> {
+    return this.http.get<any[]>(this.BaseUrl + `idea/search/${data}`,
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
+
+  sortIdea(data:any):Observable<any[]> {
+    return this.http.get<any[]>(this.BaseUrl + `idea/sort/${data}`,
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
   // Offer
 
   createOffer(offer:Offer):Observable<Offer>{
@@ -120,6 +136,7 @@ export class ApiServiceService {
   });
   }
 
+  
  //Message
 
  createMessage(msg:any){

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from 'src/app/model/message.model';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
@@ -9,11 +10,16 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 export class SentComponent implements OnInit {
   msgData:any;
   data:any;
+  msg:Message={
+    Receiver: '',
+    Message: ''
+  }
   constructor(private service:ApiServiceService) { }
 
   ngOnInit(): void {
-    this.msgData=this.service.getCompanyName();
+    //this.msgData=this.service.getCompanyName();
     console.log(this.msgData);
+    this.msgData=JSON.parse(localStorage.getItem("msgData") || '{}');
     if(this.msgData.SenderName == null){
       var s = this.msgData.Receiver.split(".", 2);
       console.log(this.msgData.Receiver,s[0]);
@@ -37,4 +43,20 @@ export class SentComponent implements OnInit {
     alert(name);
   }
 
+  sendMessage(){
+    if(this.msgData.SenderName == null){
+      this.msg.Receiver=this.msgData.Receiver;
+    }
+    else{
+      this.msg.Receiver=this.msgData.Sender;
+    }
+    this.service.createMessage(this.msg).subscribe((data)=>{
+      console.log("Sent");
+      this.ngOnInit();
+      this.msg.Message='';
+    },(error)=>{
+      alert("Something went wrong!!!");
+      console.log(error);
+    })
+  }
 }
