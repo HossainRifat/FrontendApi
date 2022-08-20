@@ -52,7 +52,7 @@
                 <div class="tab-content p-4 p-md-5" id="v-pills-tabContent" style="max-height: 650px;">
                     
                     <div class="active tab-pane" id="password" role="tabpanel" aria-labelledby="password-tab">
-                        <h3 class="mb-4">My Investments</h3>
+                        <h3>My Investment <button style="margin-left: 78%;" (click)="download()" mat-button color="primary">Download</button></h3> 
                         <div class="row">
                             <div *ngFor=" let item of IdeaConfirmed|async">
                                 <div class="searchDi">

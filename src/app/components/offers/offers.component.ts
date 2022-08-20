@@ -24,8 +24,11 @@ export class OffersComponent implements OnInit {
     // })
     this.name=this.service.getCompanyName();
     console.log(this.name.PostId);
-    this.offer=this.service.getOffer(this.name.PostId);
-    
+    //this.offer=this.service.getOffer(this.name.PostId);
+    this.service.getOffer(this.name.PostId).subscribe((data)=>{
+      this.offer=data;
+      this.myoffer=this.service.getOfferByCompany(this.name.PostId);
+    })
 
     // console.log(this.name);
     // this.myoffer=this.service.getMyOffer().subscribe((data)=>{

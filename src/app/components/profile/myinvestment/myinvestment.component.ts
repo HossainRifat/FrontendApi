@@ -42,4 +42,13 @@ export class MyinvestmentComponent implements OnInit {
     localStorage.setItem("company_name",company);
     this.router.navigate(["company/"+company]);
   }
+
+  download(){
+    this.service.download().subscribe((data)=>{
+      alert(data);
+    },(error)=>{
+      alert("Something went wrong.");
+      console.log(error);
+    })
+  }
 }

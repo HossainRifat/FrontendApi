@@ -9,7 +9,7 @@
 <body>
     <mat-tab-group mat-align-tabs="center">
         <mat-tab label="All" >
-            <div *ngFor="let item of offer|async" class="o-list">
+            <div *ngFor="let item of offer" class="o-list">
                 <h3>Offered By: {{item.FirstName}} {{item.LastName}}</h3>
                 <h4>Email: {{item.In_Email}}</h4>
                 <p>Offer: {{item.Offered_Amount}}$ for {{item.Offered_Share}}% of the company.</p>
@@ -17,7 +17,7 @@
             
         </mat-tab>
         <mat-tab label="My Offer">
-            <div *ngFor="let item of offer|async" class="o-list">
+            <div *ngFor="let item of myoffer|async" class="o-list">
                 <h3>Offered By: Me</h3>
                 <h4>Email: {{item.In_Email}}</h4>
                 <p>Offer: {{item.Offered_Amount}}$ for {{item.Offered_Share}}% of the company.</p>

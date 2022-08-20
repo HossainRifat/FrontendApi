@@ -56,6 +56,14 @@ export class ApiServiceService {
     })
   });
   }
+
+  download():Observable<any> {
+    return this.http.get<any>(this.BaseUrl + `investor/download`,
+    {headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
   // Idea
 
   getIdea():Observable<any[]> {
@@ -113,6 +121,7 @@ export class ApiServiceService {
     })
   });
   }
+
   // Offer
 
   createOffer(offer:Offer):Observable<Offer>{
@@ -136,6 +145,12 @@ export class ApiServiceService {
   });
   }
 
+  getOfferByCompany(id:any):Observable<any[]>{
+    return this.http.get<any[]>(this.BaseUrl+`offer/company/myoffer/${id}`,{headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
   
  //Message
 
