@@ -82,6 +82,10 @@ export class SecurityComponent implements OnInit {
     this.router.navigate(['profile/security'])
   }
 
+  goToReport(): void{
+    this.router.navigate(['profile/report'])
+  }
+
   goToMyIn(): void{
     this.router.navigate(['profile/myinvestment'])
   }

@@ -35,7 +35,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BasicMessageComponent } from './components/messenger/basic-message/basic-message.component';
 import { MyinvestmentComponent } from './components/profile/myinvestment/myinvestment.component';
 import { InhomeComponent } from './components/inhome/inhome.component';
-import {MatIcon, MatIconModule} from '@angular/material/icon'
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+import { ReportComponent } from './components/profile/report/report.component';
+import { VerificationComponent } from './components/verification/verification.component'
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import {MatIcon, MatIconModule} from '@angular/material/icon'
     SendOfferComponent,
     BasicMessageComponent,
     MyinvestmentComponent,
-    InhomeComponent
+    InhomeComponent,
+    ReportComponent,
+    VerificationComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +88,8 @@ import {MatIcon, MatIconModule} from '@angular/material/icon'
     SendOfferComponent,
     OffersComponent,
     BasicMessageComponent,
-    InboxComponent
+    InboxComponent,
+    VerificationComponent
   ]
 })
 export class AppModule { }

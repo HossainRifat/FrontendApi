@@ -34,9 +34,15 @@ export class OffersComponent implements OnInit {
     // this.myoffer=this.service.getMyOffer().subscribe((data)=>{
     //   console.log(data);
     // })
+  }
 
-    
-    
+  deleteOffer(data:any){
+    this.service.deleteOffer(data).subscribe((val)=>{
+      this.ngOnInit();
+    },(error)=>{
+      alert("Something went wrong");
+      console.log(error);
+    })
   }
 
   

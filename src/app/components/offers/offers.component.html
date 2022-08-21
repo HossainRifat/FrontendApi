@@ -18,7 +18,7 @@
         </mat-tab>
         <mat-tab label="My Offer">
             <div *ngFor="let item of myoffer|async" class="o-list">
-                <h3>Offered By: Me</h3>
+                <h3>Offered By: Me <button mat-button color="warn" style="margin-left: 60%;" (click)="deleteOffer(item.Id)"><mat-icon>delete</mat-icon></button></h3>
                 <h4>Email: {{item.In_Email}}</h4>
                 <p>Offer: {{item.Offered_Amount}}$ for {{item.Offered_Share}}% of the company.</p>
             </div>

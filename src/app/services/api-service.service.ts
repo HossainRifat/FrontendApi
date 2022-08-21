@@ -64,6 +64,14 @@ export class ApiServiceService {
     })
   });
   }
+
+  createVerification(data:any){
+    return this.http.post(this.BaseUrl + `investor/verification/create`,data);
+  }
+
+  checkVerification(data:any){
+    return this.http.post(this.BaseUrl + `investor/verification/check`,data);
+  }
   // Idea
 
   getIdea():Observable<any[]> {
@@ -151,6 +159,13 @@ export class ApiServiceService {
     })
   });
   }
+
+  deleteOffer(data:any):Observable<any>{
+    return this.http.get<any>(this.BaseUrl+`offer/delete/${data}`,{headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
   
  //Message
 
@@ -175,6 +190,14 @@ gteConversation(data:any):Observable<any[]>{
 });
 }
 
+  //Report
+  createReport(data:any){
+    return this.http.post<Offer>(this.BaseUrl+'report/investor/create',data,{headers:new HttpHeaders({
+      'Authorization':localStorage.getItem("auth") || '{}',
+    })
+  });
+  }
+
   //Other
   setCompanyName(name:any){
     this.company=name;
@@ -183,5 +206,6 @@ gteConversation(data:any):Observable<any[]>{
   getCompanyName(){
     return this.company;
   }
+
 
 }

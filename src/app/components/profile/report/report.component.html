@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body *ngIf="User">
+    <section class="profile-body">
+        <div class="Inprofile-container">
+            <div class=" investor-shadow rounded-lg d-block d-sm-flex">
+                <div class="profile-tab-nav border-right">
+                    <div class="p-4">
+                        <div class="img-circle text-center mb-3">
+                            <img src="assets/img/11.jpg"  alt="Image" class="investor-shadow">
+
+                        </div>
+                        <h2 class="text-center">{{User.FirstName}} {{User.LastName}}</h2>
+                        <a href="" class="edit-profile">Edit</a>
+                    </div>
+                    
+                    
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a mat-button class="nav-link" (click)="goToPersonal()">
+                            <i class="fa fa-user text-center mr-1"></i>
+                            Personal Information
+                        </a>
+
+                        <a mat-button class=" nav-link" (click)="goToProfessional()">
+                            <i class="fa fa-building text-center mr-1"></i>
+                            Professional Information
+                        </a>
+                        <a mat-button class="nav-link" (click)="goToMyIn()"  aria-selected="false">
+                            <i class="fa fa-briefcase text-center mr-1"></i>
+                            My Investments
+                        </a>
+                        <a mat-button class="nav-link" (click)="goToSecurity()">
+                            <i class="fa fa-key text-center mr-1"></i>
+                            Security
+                        </a>
+                        <a mat-button class="active nav-link text-warning" (click)="goToReport()">
+                            <i class="fa fa-exclamation-circle text-center mr-1 text-warning"></i>
+                            Report Issue
+                        </a>
+                        <a mat-button class="nav-link text-danger" href="" role="tab" aria-selected="false">
+                            <i class="fa fa-sign-out text-center mr-1 text-danger"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+
+                    <div  class="active tab-pane" >
+                        <h3 class="mb-4">Report To Admin</h3>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Admin</label>
+                                    <input type="text"  class="form-control" readonly name="Receiver" [(ngModel)]="report.Receiver">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Title </label>
+                                    <input type="text"  class="form-control" name="Title" [(ngModel)]="report.Title">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Description </label>
+                                    <textarea class="form-control"  rows="4" name="Description" [(ngModel)]="report.Description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- <button class="btn btn-link" (click)="openEdit()">Edit information</button> -->
+                            <button class="btn btn-warning" (click)="createReport()">Send</button>
+                            <button class="btn btn-light" (click)="cancel()" style="margin-left: 10px;">Cancel</button>
+                        </div>
+                        
+                    </div> 
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

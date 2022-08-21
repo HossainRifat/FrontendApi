@@ -40,7 +40,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="password" id="passShow" name="Password" class="form-control" [(ngModel)]="login.Password"></td>
+                    <td *ngIf="!show"><input type="password" id="passShow" name="Password" class="form-control" [(ngModel)]="login.Password"></td>
+                    <td *ngIf="show"><input type="text" id="passShow" name="Password" class="form-control" [(ngModel)]="login.Password"></td>
                 </tr>
                 <tr>
                     <td *ngIf="errorMsg">
@@ -49,12 +50,12 @@
                 </tr>
                 <tr>
 
-                    <td><input type="checkbox" onclick="showPass()" name="pwd"> Show Password</td>
+                    <td> <mat-checkbox style="margin-left: 20% ;" class="example-margin" (click)="showPass()">Show Password</mat-checkbox></td>
                 </tr>
                 <tr>
-                    <td>
+                    <!-- <td>
                         <input type="checkbox" name="remember"> Remember me.
-                    </td>
+                    </td> -->
                 </tr>
                 <tr>
 

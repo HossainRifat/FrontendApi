@@ -82,6 +82,10 @@ export class PersonalComponent implements OnInit {
     this.router.navigate(['profile/myinvestment'])
   }
 
+  goToReport(): void{
+    this.router.navigate(['profile/report'])
+  }
+
   openEdit(){
     if(this.edit){
       console.log("it is true");

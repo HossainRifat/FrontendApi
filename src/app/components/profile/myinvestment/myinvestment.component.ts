@@ -38,10 +38,16 @@ export class MyinvestmentComponent implements OnInit {
     this.router.navigate(['profile/security'])
   }
 
+  goToReport(): void{
+    this.router.navigate(['profile/report'])
+  }
+
   getDetails(company:string){
     localStorage.setItem("company_name",company);
     this.router.navigate(["company/"+company]);
   }
+
+
 
   download(){
     this.service.download().subscribe((data)=>{
