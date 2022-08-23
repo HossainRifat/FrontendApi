@@ -16,7 +16,10 @@ export class HeaderComponent implements OnInit {
   }
 
   openMsg(){
-    this.dialog.open(InboxComponent);
+    if(localStorage.getItem("auth")){
+      this.dialog.open(InboxComponent);
+    }
+    
   }
   
 

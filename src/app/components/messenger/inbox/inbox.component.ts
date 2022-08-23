@@ -18,7 +18,7 @@ export class InboxComponent implements OnInit {
       console.log(data);
     },(error)=>{
       console.log(error);
-      //this.router.navigate(["login"]);
+      this.router.navigate(["login"]);
     })
   }
 

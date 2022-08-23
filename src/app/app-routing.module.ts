@@ -39,7 +39,8 @@ const routes: Routes = [
   {path:"message",component:BasicMessageComponent},
   {path:"inhome",component:InhomeComponent},
   {path:"profile/report",component:ReportComponent},
-  {path:"verification",component:VerificationComponent}
+  {path:"verification",component:VerificationComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
